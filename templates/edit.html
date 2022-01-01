@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+{%block head%}
+<title>Edit Page</title>
+<link rel="stylesheet" href="{{url_for('static',filename='css/posts.css')}}">
+{%endblock%}
+{%block content%}
+<h1>Edit Blog Post</h1>
+<form action="/posts/edit/{{post.id}}" method='POST' class="form-control border-0">
+    <div class="input-group mb-3">
+        <h3>Title: &nbsp;&nbsp;&nbsp;</h3> <input type="text" name='title' id='title' class="form-control"
+            value='{{post.title}}'>
+    </div>
+    <div class="input-group mb-3">
+        <h3>Content: &nbsp;&nbsp;&nbsp; </h3><textarea type="text" name='content' id='content' class="form-control"
+         rows='10' cols="30"> {%if post.content%}    {{post.content}}{%endif%}
+        </textarea>
+    </div>
+    <div class="input-group mb-3">
+        <h3>Author: &nbsp;&nbsp;&nbsp; </h3><input type="text" name='author' id='author' class="form-control"
+            value='{{post.author}}'>
+    </div>
+    <div class="input-group mb-3" type='text'>
+        <input type="submit" value='Save' class="form-control form-control-md bg-secondary text-light">
+    </div>
+</form>
+
+
+
+
+
+{%endblock%}

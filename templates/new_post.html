@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+{%block head%}
+<title>Edit Page</title>
+<link rel="stylesheet" href="{{url_for('static',filename='css/posts.css')}}">
+{%endblock%}
+{%block content%}
+<h2>Create New Blog Posts</h2>
+<form action="/posts" method='post' class="form-control border-0">
+    <h3>Title: &nbsp;&nbsp;&nbsp;</h3>
+    <div class="input-group mb-3">  
+        <br>
+        <input type="text" placeholder="Enter Title" name='title' id='title' class="form-control"
+            aria-label="Amount (to the nearest dollar)">
+    </div>
+    <h3>Content: &nbsp;&nbsp;&nbsp;</h3>
+    <div class="input-group mb-3">
+        <textarea class='form-control' placeholder="Enter Content" name='content'id="content" cols="30" rows="5"></textarea>
+    </div>
+    <h3>Author: &nbsp;&nbsp;&nbsp; </h3>
+    <div class="input-group mb-3">
+        <br>
+        <input type="text" name='author' placeholder="Enter Author" id='author' class="form-control"
+            aria-label="Amount (to the nearest dollar)">
+    </div>
+    <div class="input-group mb-3" type='text'>
+        <input type="submit"  value='Post' class="btn btn-outline-primary form-control btn-lg">
+    </div>
+</form>
+
+
+{%endblock%}

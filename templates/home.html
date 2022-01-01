@@ -1,0 +1,24 @@
+{%extends 'base.html'%}
+{%block head%}
+<title>Home Page</title>
+<link rel="stylesheet" href="{{url_for('static',filename='css/posts.css')}}">
+{%endblock%}
+{%block content%}
+
+<div>
+    <div class="bg-light p-5 rounded">
+        <div class="col-sm-8 mx-auto">
+            <h1>Welcome!</h1>
+            <p>This is my first ever blogging app, although it's pretty simple it helped my improve my skills
+                exponentially so I hope You find it interesting.</p>
+            <p>To create new posts or view old ones, click the button below</p>
+            <p>
+                <a class="btn btn-primary" href="/posts" role="button">View Posts
+                    &raquo;</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+{%endblock%}
