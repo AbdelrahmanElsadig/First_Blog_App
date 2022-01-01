@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 app = Flask(__name__)
 app.secret_key = "hello"
-app.config['SQLACHEMY_DATABASE_URI'] = 'sqlite:///blog_posts.sqlite3'
+app.config['SQLACHEMY_DATABASE_URI'] = 'mysql+pymsql://root.!AweSomeNess150@localhost/blog'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
