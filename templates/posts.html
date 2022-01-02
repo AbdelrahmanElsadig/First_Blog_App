@@ -8,6 +8,9 @@
 <h1>All posts</h1> 
 <a href="/posts/new" class="btn btn-success h-50">Create New Post</a>
 </div>
+{%if not all_posts%}
+<h2>No Posts have been Submitted</h2>
+{%endif%}
 {%for post in all_posts%}
 <div class="container-fluid pb-5">
     <h2>{{post.title}}</h2>
