@@ -1,9 +1,10 @@
 from flask import Flask, render_template, url_for,flash,session,request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+import os
 app = Flask(__name__)
-SECRET_KEY = "!AweSomeNess150"
-app.config['SQLACHEMY_DATABASE_URI'] = 'sqlite:///blog_posts.db'
+app.secret_key = "hello"
+app.config['SQLACHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
