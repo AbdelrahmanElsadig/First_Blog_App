@@ -69,8 +69,7 @@ def new():
         db.session.commit()
         return redirect('/posts')
     return render_template('/new_post.html')
-def create_tables():
-    db.create_all()
 
 if __name__ == '__main__':
+    db.create_all()
     app.run(debug=True)
