@@ -2,11 +2,9 @@ from flask import Flask, render_template, url_for,flash,session,request, redirec
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 app = Flask(__name__)
-app.config['SQLACHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
+app.config['SQLACHEMY_DATABASE_URI'] = 'sqlite:///posts.sqlite3'
 app.secret_key = '!AweSomeNess150'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
-
 
 class blog_posts(db.Model):
     id = db.Column(db.Integer,primary_key=True)
