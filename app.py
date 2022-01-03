@@ -7,7 +7,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = '!AweSomeNess150'
 db = SQLAlchemy(app)
 
-class blog_posts(db.Model):
+class posts(db.Model):
     id = db.Column(db.Integer,primary_key=True)
     title = db.Column(db.String(100),nullable=False)
     content = db.Column(db.Text,nullable=False)
@@ -30,24 +30,24 @@ def posts():
         post_title = request.form['title']
         post_content = request.form['content']
         post_author = request.form.get('author',False)
-        new_post = blog_posts(title=post_title,content=post_content,author= post_author)
+        new_post = posts(title=post_title,content=post_content,author= post_author)
         db.session.add(new_post)
         db.session.commit()
         return redirect('/posts')
     else:
-        all_posts = blog_posts.query.all()
+        all_posts = posts.query.all()
         return render_template('posts.html',all_posts=all_posts)
 
 @app.route('/posts/delete/<int:id>')
 def delete(id): 
-    post = blog_posts.query.get_or_404(id)
+    post = posts.query.get_or_404(id)
     db.session.delete(post)
     db.session.commit()
     return redirect('/posts')
 
 @app.route('/posts/edit/<int:id>',methods=['GET','POST'])
 def edit(id):
-    post = blog_posts.query.get_or_404(id)
+    post = posts.query.get_or_404(id)
     if request.method == 'POST':
         post.title = request.form['title']
         post.content = request.form['content']
@@ -62,7 +62,7 @@ def new():
         post_title = request.form['title']
         post_content = request.form['content']
         post_author = request.form.get('author',False)
-        new_post = blog_posts(title=post_title,content=post_content,author= post_author)
+        new_post = posts(title=post_title,content=post_content,author= post_author)
         db.session.add(new_post)
         db.session.commit()
         return redirect('/posts')
