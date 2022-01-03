@@ -2,7 +2,7 @@ from flask import Flask, render_template, url_for,flash,session,request, redirec
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 app = Flask(__name__)
-app.config['SQLACHEMY_DATABASE_URI'] = 'sqlite:///blog_post.db'
+app.config['SQLACHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
 app.secret_key = '!AweSomeNess150'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
@@ -68,9 +68,6 @@ def new():
         db.session.commit()
         return redirect('/posts')
     return render_template('/new_post.html')
-with app.app_context():
-    db.create_all()
 
 if __name__ == '__main__':
-    db.create_all()
     app.run(debug=True)
